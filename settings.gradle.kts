@@ -23,7 +23,6 @@ rootProject.name = "foodipe"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
-include(":build-logic")
 include(":core:ui")
 include(":core:data")
 include(":core:domain")
