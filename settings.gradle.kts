@@ -1,4 +1,6 @@
 pluginManagement {
+
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -29,4 +31,3 @@ include(":core:domain")
 include(":core:network")
 include(":core:database")
 include(":core:common")
-include(":build-logic:convention")
