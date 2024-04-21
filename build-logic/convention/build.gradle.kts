@@ -17,14 +17,18 @@ tasks.withType<KotlinCompile>().configureEach {
 
 
 dependencies {
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
-    compileOnly("com.android.tools.build:gradle:8.3.0")
+    compileOnly(libs.kotlin.gradle)
+    compileOnly(libs.android.gradle)
 }
 gradlePlugin {
     plugins {
-        register("conventionName") {
-            id = "foodipe.compose"
-            implementationClass = "ComposeConventionPlugin"
+        register("applicationCompose") {
+            id = "foodipe.application.compose"
+            implementationClass = "com.example.convention.ComposeApplicationConventionPlugin"
+        }
+        register("libraryCompose") {
+            id = "foodipe.library.compose"
+            implementationClass = "com.example.convention.ComposeLibraryConventionPlugin"
         }
     }
 }
