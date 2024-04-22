@@ -42,4 +42,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 custom-application-compose = { id = "foodipe.application.compose", version = "unspecified" }
 custom-library-compose = { id = "foodipe.library.compose", version = "unspecified" }
 custom-library-common = { id = "foodipe.library.common", version = "unspecified" }
+custom-application-common = { id = "foodipe.application.common", version = "unspecified" }
 

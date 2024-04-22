@@ -34,5 +34,9 @@ gradlePlugin {
             id = "foodipe.library.common"
             implementationClass = "com.example.convention.LibraryConventionPlugin"
         }
+        register("applicationPlugin") {
+            id = "foodipe.application.common"
+            implementationClass = "com.example.convention.ApplicationConventionPlugin"
+        }
     }
 }
