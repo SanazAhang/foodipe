@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.custom.library.common)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.custom.android.dagger.hilt)
+
 }
 
 android {

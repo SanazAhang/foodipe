@@ -38,5 +38,9 @@ gradlePlugin {
             id = "foodipe.application.common"
             implementationClass = "com.example.convention.ApplicationConventionPlugin"
         }
+        register("daggerHiltPlugin") {
+            id = "foodipe.android.dagger.hilt"
+            implementationClass = "com.example.convention.hiltConventionPlugin"
+        }
     }
 }

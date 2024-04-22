@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.custom.library.compose)
+    alias(libs.plugins.custom.android.dagger.hilt)
+
 }
 
 android {
