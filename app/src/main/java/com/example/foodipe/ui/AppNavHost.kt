@@ -4,13 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import com.example.foodipe.Greeting
-import com.example.foodipe.LoginScreen
 import com.example.foodipe.ui.helper.LocalNavigationController
+import com.example.login.navigation.loginScreen
+import com.example.login.navigation.navigateToLogin
 
 /**
  * Created by Sanaz Ahang on 24,April,2024
@@ -26,30 +25,21 @@ fun AppNavHost(
 
     CompositionLocalProvider(LocalNavigationController provides navController) {
 
-
         NavHost(navController = navController, startDestination = startDestination) {
             greetingScreen {
-                navController.navigate("login/sanaz")
+                navController.navigateToLogin(it)
             }
-
             loginScreen()
 
         }
     }
 }
 
-fun NavGraphBuilder.greetingScreen(onClick: () -> Unit) {
+fun NavGraphBuilder.greetingScreen(onClick: (name: String) -> Unit) {
     composable("greeting") {
-        Greeting("sanaz", onClick = {
-            onClick()
+        Greeting("sanaz & Atieh", onClick = {
+            onClick(it)
         })
     }
 }
 
-fun NavGraphBuilder.loginScreen() {
-    composable(route = "login/{name}", arguments = listOf(navArgument("name") {
-        type = NavType.StringType
-    })) {
-        LoginScreen(it.arguments?.getString("name")!!)
-    }
-}

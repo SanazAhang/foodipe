@@ -30,6 +30,7 @@ dependencies {
     implementation(projects.core.ui)
     implementation(projects.core.data)
     implementation(projects.core.common)
+    implementation(projects.feature.login)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -35,18 +35,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun LoginScreen(name: String) {
-    Text(
-        text = "This is Login Screen!  ${name}",
-    )
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
+fun Greeting(name: String, modifier: Modifier = Modifier, onClick: (name: String) -> Unit) {
     Text(
         text = "Hello $name!",
         modifier = modifier.clickable {
-            onClick()
+            onClick(name)
         }
 
     )
