@@ -3,8 +3,12 @@ package com.example.convention
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.AndroidComponentsExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.example.convention.helper.ANDROID_APPLICATION_NAME
+import com.example.convention.helper.ANDROID_TEST_RUNNER
 import com.example.convention.helper.BuildType
+import com.example.convention.helper.CORE_KTX
 import com.example.convention.helper.DependencyType
+import com.example.convention.helper.JET_BRAIN_KOTLIN_ANDROID
 import com.example.convention.helper.appConstant
 import com.example.convention.helper.configureKotlin
 import com.example.convention.helper.libs
@@ -22,13 +26,13 @@ class ApplicationConventionPlugin : Plugin<Project> {
 
         with(target) {
             pluginManager.apply(ANDROID_APPLICATION_NAME)
-            pluginManager.apply("org.jetbrains.kotlin.android")
+            pluginManager.apply(JET_BRAIN_KOTLIN_ANDROID)
             configureProject()
 
             dependencies {
                 add(
                     DependencyType.IMPLEMENTATION.configurationName,
-                    libs.findLibrary("androidx-core-ktx").get()
+                    libs.findLibrary(CORE_KTX).get()
                 )
             }
         }
@@ -70,7 +74,7 @@ private fun BaseAppModuleExtension.configureDefaultConfig() {
         versionCode = appConstant.VERSION_CODE
         versionName = appConstant.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = ANDROID_TEST_RUNNER
         vectorDrawables {
             useSupportLibrary = true
         }

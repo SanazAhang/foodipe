@@ -1,8 +1,13 @@
 package com.example.convention
 
 import com.android.build.gradle.LibraryExtension
+import com.example.convention.helper.ANDROID_LIBRARY_NAME
+import com.example.convention.helper.ANDROID_TEST_RUNNER
+import com.example.convention.helper.CONSUMER_RULES
+import com.example.convention.helper.CORE_KTX
 import com.example.convention.helper.DependencyType
 import com.example.convention.helper.Dimensions
+import com.example.convention.helper.JET_BRAIN_KOTLIN_ANDROID
 import com.example.convention.helper.appConstant
 import com.example.convention.helper.configureKotlin
 import com.example.convention.helper.libs
@@ -25,7 +30,7 @@ class LibraryConventionPlugin : Plugin<Project> {
 private fun Project.applyPlugin() {
     this.apply() {
         pluginManager.apply(ANDROID_LIBRARY_NAME)
-        pluginManager.apply("org.jetbrains.kotlin.android")
+        pluginManager.apply(JET_BRAIN_KOTLIN_ANDROID)
     }
 }
 
@@ -57,11 +62,11 @@ private fun LibraryExtension.configureBuildType() {
 private fun LibraryExtension.configureDefaultConfig() {
     defaultConfig {
         minSdk = appConstant.MIN_SDK
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = ANDROID_TEST_RUNNER
         vectorDrawables {
             useSupportLibrary = true
         }
-        consumerProguardFiles("consumer-rules.pro")
+        consumerProguardFiles(CONSUMER_RULES)
     }
 }
 
@@ -69,7 +74,7 @@ private fun Project.addDependencies() {
     dependencies {
         add(
             DependencyType.IMPLEMENTATION.configurationName,
-            libs.findLibrary("androidx-core-ktx").get()
+            libs.findLibrary(CORE_KTX).get()
         )
     }
 }

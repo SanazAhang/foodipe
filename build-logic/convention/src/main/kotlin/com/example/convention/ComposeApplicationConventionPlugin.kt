@@ -2,14 +2,17 @@ package com.example.convention
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.example.convention.helper.ACTIVITY_COMPOSE
+import com.example.convention.helper.ANDROID_APPLICATION_NAME
+import com.example.convention.helper.COMPOSE_BOM
+import com.example.convention.helper.DependencyType
 import com.example.convention.helper.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.kotlin.konan.util.visibleName
 
-
-const val ANDROID_APPLICATION_NAME = "com.android.application"
 
 /**
  * Created by Sanaz Ahang on 17,April,2024
@@ -39,12 +42,12 @@ fun Project.configureAndroidCompose(
 
         dependencies {
             add(
-                configurationName = "implementation",
-                libs.findLibrary("androidx-activity-compose").get()
+                configurationName = DependencyType.IMPLEMENTATION.visibleName,
+                libs.findLibrary(ACTIVITY_COMPOSE).get()
             )
             add(
-                configurationName = "implementation",
-                platform(libs.findLibrary("androidx-compose-bom").get())
+                configurationName = DependencyType.IMPLEMENTATION.visibleName,
+                platform(libs.findLibrary(COMPOSE_BOM).get())
             )
         }
 
