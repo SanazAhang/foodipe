@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.dependencies
 /**
  * Created by Sanaz Ahang on 22,April,2024
  */
-class hiltConventionPlugin : Plugin<Project> {
+class HiltConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("dagger.hilt.android.plugin")

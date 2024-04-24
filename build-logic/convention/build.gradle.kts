@@ -40,7 +40,7 @@ gradlePlugin {
         }
         register("daggerHiltPlugin") {
             id = "foodipe.android.dagger.hilt"
-            implementationClass = "com.example.convention.hiltConventionPlugin"
+            implementationClass = "com.example.convention.HiltConventionPlugin"
         }
     }
 }
