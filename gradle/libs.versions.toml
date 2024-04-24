@@ -11,6 +11,13 @@ composeBom = "2023.08.00"
 jetbrainsKotlinJvm = "1.9.0"
 appcompat = "1.6.1"
 material = "1.10.0"
+kotlin-gradle = "1.9.10"
+android-gradle = "8.3.0"
+daggerHilt = "2.48.1"
+androidxHiltNavigationCompose = "1.2.0"
+androidxNavigation = "2.7.7"
+ksp = "1.9.10-1.0.13"
+kotlinxCoroutines = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,12 +34,32 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material3-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-gradle" }
+android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle" }
+
+
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+custom-application-compose = { id = "foodipe.application.compose", version = "unspecified" }
+custom-library-compose = { id = "foodipe.library.compose", version = "unspecified" }
+custom-library-common = { id = "foodipe.library.common", version = "unspecified" }
+custom-application-common = { id = "foodipe.application.common", version = "unspecified" }
+custom-android-dagger-hilt = { id = "foodipe.android.dagger.hilt", version = "unspecified" }
+dagger-hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 
