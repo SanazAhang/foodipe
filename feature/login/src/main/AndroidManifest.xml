@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest>
+<manifest xmlns:tools="http://schemas.android.com/tools">
 
+    <application tools:ignore="ExtraText">
+        android:windowSoftInputMode="adjustResize|stateHidden"
+    </application>
 </manifest>

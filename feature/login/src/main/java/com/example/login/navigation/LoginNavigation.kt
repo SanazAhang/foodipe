@@ -16,6 +16,6 @@ fun NavGraphBuilder.loginScreen() {
     composable(route = "${LOGIN_ROUTE}/{name}", arguments = listOf(navArgument("name") {
         type = NavType.StringType
     })) {
-        LoginScreen(it.arguments?.getString("name")!!)
+        LoginScreen()
     }
 }
