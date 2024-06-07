@@ -18,7 +18,7 @@ import com.example.foodipe.ui.helper.LocalSnackBarHost
  * Created by Sanaz Ahang on 24,April,2024
  */
 @Composable
-fun FoodipeApp(
+fun FoodipeAppScreen(
     windowSizeClass: WindowSizeClass,
     appState: AppState = rememberMarkAppState(windowSizeClass = windowSizeClass)
 ) {

@@ -6,7 +6,7 @@ import com.example.login.presentation.model.LoginUiModel
  * Created by Sanaz Ahang on 05,May,2024
  */
 
-fun userInputValidation(userInput: LoginUiModel) {
+fun userInputValidation(userInput: LoginUiModel):Boolean {
     require(userInput.firstName.value.isEmpty()) {
         return@require "FirstName shouldn't be empty"
     }
@@ -30,6 +30,7 @@ fun userInputValidation(userInput: LoginUiModel) {
         return@require "Email address is invalid"
     }
 
+    return true
 }
 
 

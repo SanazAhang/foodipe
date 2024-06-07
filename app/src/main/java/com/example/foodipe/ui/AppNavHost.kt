@@ -29,7 +29,7 @@ fun AppNavHost(
             greetingScreen {
                 navController.navigateToLogin(it)
             }
-            loginScreen()
+            this.loginScreen()
 
         }
     }

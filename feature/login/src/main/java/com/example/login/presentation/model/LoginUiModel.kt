@@ -16,3 +16,10 @@ data class UserData(
     val errorMessage: String = ""
 )
 
+enum class UserInputFiled{
+    FIRSTNAME,
+    LASTNAME,
+    EMAIL,
+    USERNAME
+}
+

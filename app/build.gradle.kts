@@ -3,8 +3,11 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.custom.application.compose)
-    alias(libs.plugins.custom.android.dagger.hilt)
-    alias(libs.plugins.ksp)
+//    alias(libs.plugins.compose.compiler)
+//    alias(libs.plugins.custom.android.dagger.hilt)
+//    alias(libs.plugins.ksp)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 
@@ -31,6 +34,10 @@ dependencies {
     implementation(projects.core.data)
     implementation(projects.core.common)
     implementation(projects.feature.login)
+    implementation( "com.google.dagger:hilt-android:2.51.1")
+    ksp("com.google.dagger:hilt-compiler:2.51.1")
+
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

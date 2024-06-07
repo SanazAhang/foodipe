@@ -1,25 +1,25 @@
 [versions]
-agp = "8.3.0"
+agp = "8.4.1"
 kotlin = "1.9.0"
-coreKtx = "1.12.0"
+coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
-activityCompose = "1.8.2"
+activityCompose = "1.9.0"
 lifecycleCompose = "2.7.0"
-composeBom = "2023.08.00"
+composeBom = "2024.05.00"
 jetbrainsKotlinJvm = "1.9.0"
-appcompat = "1.6.1"
-material = "1.10.0"
+appcompat = "1.7.0"
+material = "1.12.0"
 kotlin-gradle = "1.9.10"
-android-gradle = "8.3.0"
-daggerHilt = "2.48.1"
+android-gradle = "8.3.2"
+daggerHilt = "2.51.1"
 androidxHiltNavigationCompose = "1.2.0"
 androidxNavigation = "2.7.7"
-ksp = "1.9.10-1.0.13"
+ksp = "1.9.0-1.0.13"
 kotlinxCoroutines = "1.7.3"
-
+hiltAndroid = "2.51.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -42,7 +42,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-gradle" }
 android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle" }
-
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
@@ -54,6 +55,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 custom-application-compose = { id = "foodipe.application.compose", version = "unspecified" }

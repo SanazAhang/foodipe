@@ -13,11 +13,13 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.foodipe.ui.FoodipeApp
+import com.example.foodipe.ui.FoodipeAppScreen
 import com.example.foodipe.ui.theme.FoodipeTheme
-
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+    @OptIn
+        (ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,7 +29,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FoodipeApp(windowSizeClass = calculateWindowSizeClass(activity = this))
+//                    Greeting(name =" SANAAAAAAZZZZZZZ ERRORRRR NADAD") {
+//
+//                    }
+                    FoodipeAppScreen(windowSizeClass = calculateWindowSizeClass(activity = this))
                 }
             }
         }

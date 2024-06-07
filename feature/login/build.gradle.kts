@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.custom.library.common)
     alias(libs.plugins.custom.android.dagger.hilt)
     alias(libs.plugins.custom.library.compose)
+//    alias(libs.plugins.compose.compiler)
+
 }
 
 android {
