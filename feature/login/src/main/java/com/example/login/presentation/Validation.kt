@@ -32,5 +32,32 @@ fun userInputValidation(userInput: LoginUiModel):Boolean {
 
     return true
 }
+fun validation(userInput: LoginUiModel):String{
+    if(userInput.firstName.value.isEmpty()) {
+        return "FirstName shouldn't be empty"
+    }
+    if(userInput.lastName.value.isEmpty()) {
+        return "LastName shouldn't be empty"
+    }
+    if(userInput.userName.value.isEmpty()) {
+        return "Username shouldn't be empty"
+    }
+    if(userInput.email.value.isEmpty()) {
+        return "Email shouldn't be empty"
+    }
+
+    if(userInput.firstName.value.contains("[0-9]".toRegex())) {
+        return "FirstName shouldn't contains number "
+    }
+    if(userInput.firstName.value.contains("[0-9]".toRegex())) {
+        return "LastName shouldn't contains number "
+    }
+    if(!android.util.Patterns.EMAIL_ADDRESS.matcher(userInput.email.value).matches()) {
+        return "Email address is invalid"
+    }
+    else
+        return "Everything is true"
+
+}
 
 

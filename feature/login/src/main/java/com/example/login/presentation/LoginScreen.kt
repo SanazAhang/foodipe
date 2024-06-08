@@ -1,9 +1,11 @@
 package com.example.login.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -32,6 +34,9 @@ internal fun LoginScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     LoginLayout(state = state, modifier = modifier, viewModel)
+//    Greeting(name = "Sanaz", modifier = modifier, onClick = {
+
+//    })
 }
 
 
@@ -42,9 +47,7 @@ fun LoginLayout(
     viewModel: LoginViewModel
 ) {
     val focusManager = LocalFocusManager.current
-
-
-    if (state.loading)
+    if (!state.loading)
         Column(
             modifier = Modifier
                 .fillMaxHeight()
@@ -60,22 +63,74 @@ fun LoginLayout(
                 firstName = state.loginModel.firstName.value,
                 lastName = state.loginModel.lastName.value,
                 userName = state.loginModel.userName.value,
-                onEmailChange = {
-                    if (it.length >= 5)
-                        viewModel.sendEvent(LoginEvent.UiError("******", UserInputFiled.EMAIL))
-                },
+
                 onFirstNameChange = {
-                    if (it.length >= 5)
+                    viewModel.sendEvent(
+                        LoginEvent.TextFieldUpdate(
+                            LoginUiModel(
+                                firstName = UserData(
+                                    value = it
+                                ),
+                                lastName = state.loginModel.lastName,
+                                userName = state.loginModel.userName,
+                                email = state.loginModel.email
+                            )
+                        )
+                    )
+
+                    if (it.length <= 5)
                         viewModel.sendEvent(LoginEvent.UiError("******", UserInputFiled.FIRSTNAME))
                 },
                 onLastNameChange = {
-                    if (it.length >= 5)
+                    viewModel.sendEvent(
+                        LoginEvent.TextFieldUpdate(
+                            LoginUiModel(
+                                lastName = UserData(
+                                    value = it
+                                ),
+                                firstName = state.loginModel.firstName,
+                                userName = state.loginModel.userName,
+                                email = state.loginModel.email
+                            )
+                        )
+                    )
+
+                    if (it.length <= 5)
                         viewModel.sendEvent(LoginEvent.UiError("******", UserInputFiled.LASTNAME))
                 },
                 onUserNameChange = {
+                    viewModel.sendEvent(
+                        LoginEvent.TextFieldUpdate(
+                            LoginUiModel(
+                                userName = UserData(
+                                    value = it
+                                ),
+                                firstName = state.loginModel.firstName,
+                                lastName = state.loginModel.lastName,
+                                email = state.loginModel.email
+                            )
+                        )
+                    )
 
-                    if (it.length >= 5)
+                    if (it.length <= 5)
                         viewModel.sendEvent(LoginEvent.UiError("******", UserInputFiled.USERNAME))
+                },
+                onEmailChange = {
+                    viewModel.sendEvent(
+                        LoginEvent.TextFieldUpdate(
+                            LoginUiModel(
+                                email = UserData(
+                                    value = it
+                                ),
+                                firstName = state.loginModel.firstName,
+                                lastName = state.loginModel.lastName,
+                                userName = state.loginModel.userName
+                            )
+                        )
+                    )
+
+                    if (it.length <= 5)
+                        viewModel.sendEvent(LoginEvent.UiError("******", UserInputFiled.EMAIL))
                 },
                 firstNameValidation = {
                     if (!it.contains("[0-9]".toRegex())) {
@@ -113,10 +168,10 @@ fun LoginLayout(
                     viewModel.sendEvent(
                         LoginEvent.Register(
                             LoginUiModel(
-                                email = UserData(state.loginModel.email.value),
                                 firstName = UserData(state.loginModel.firstName.value),
                                 lastName = UserData(state.loginModel.lastName.value),
-                                userName = UserData(state.loginModel.userName.value)
+                                userName = UserData(state.loginModel.userName.value),
+                                email = UserData(state.loginModel.email.value)
                             )
                         )
                     )
@@ -128,6 +183,17 @@ fun LoginLayout(
 
 }
 
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier, onClick: (name: String) -> Unit) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier.clickable {
+            onClick(name)
+        }
+
+    )
+
+}
 
 @Preview(showBackground = true)
 @Composable

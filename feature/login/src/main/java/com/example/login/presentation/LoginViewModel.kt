@@ -29,7 +29,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
         get() = _uiState
 
     private val _viewEvents: MutableSharedFlow<LoginEvent> = MutableSharedFlow()
-
+    
     @VisibleForTesting
     fun updateState(mutation: (currentState: LoginUiModel) -> LoginUiModel) {
 //        _uiState.update {
@@ -39,8 +39,8 @@ class LoginViewModel @Inject constructor() : ViewModel() {
 
 
     private fun registerUser(data:LoginUiModel) {
-        if (userInputValidation(data))
-            Log.e("LOGIN","REGISTER")
+//        if (userInputValidation(data))
+            Log.d("LOGIN", validation(data))
 //        _uiState.update {
 //        }
     }
@@ -117,6 +117,12 @@ class LoginViewModel @Inject constructor() : ViewModel() {
 
             is LoginEvent.UiError -> {
                 handleUiError(event)
+            }
+
+            is LoginEvent.TextFieldUpdate -> {
+                _uiState.update {
+                    it.copy(loginModel = event.model)
+                }
             }
         }
     }
